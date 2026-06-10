@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "iconimage": "../../../static/assets/logo-iron.png",
+    "siteUrl": "https://brkootnekoff.github.io/Music",
+    "showLogo": true,
+    "twitterUsername": "@brkootnekoff",
+    "darkModeVisibility": "NO",
+    "logoImage": "../../../static/assets/logo-iron.png",
+    "titleTemplate": "%s",
+    "title": "Brandon Kootnekoff",
+    "image": "../../../static/assets/logo-iron.png",
+    "showTitle": true,
+    "description": "Composer and music producer — cinematic scores, electronic production, and original music by Brandon Kootnekoff."
+  }
+}
