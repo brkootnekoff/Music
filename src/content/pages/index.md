@@ -1,36 +1,27 @@
 ---
 template: index-page
 slug: /
-bannerImage: ../../../static/assets/banner-music-studio.jpg
-profileImage: ../../../static/assets/pexels-andrea-piacquadio-839011.jpg
+profileImageUrl: "https://instagram.fyvr2-1.fna.fbcdn.net/v/t51.2885-19/468950451_1070311764631599_7626133841938007136_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4zMjAuYzIifQ&_nc_ht=instagram.fyvr2-1.fna.fbcdn.net&_nc_cat=103&_nc_oc=Q6cZ2gH3QCLd-aqfXjy3MPWvknqU-c5QY5qNrzJkcyS-4cOCwiK2_3ewehs35XJxTKCaLUo&_nc_ohc=jfjTHjjCRZ8Q7kNvwFsgSm1&_nc_gid=e3OqJt5uDzPNANycOMTASw&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_Af9dQS4OULVzYwYrmj9vWakyd0YSTop-FXJWh-FlatFrFw&oe=6A303A29&_nc_sid=7a9f4b"
 name: Brandon Kootnekoff
-tagline: Composer & music producer — cinematic scores, electronic textures, and hybrid sound design
-description: Brandon Kootnekoff is an up-and-coming composer and music producer crafting cinematic, electronic, and orchestral music for film, games, and independent artists.
-audio:
-  title: "Midnight Signal (Demo)"
-  artist: Brandon Kootnekoff
-  src: /assets/track.mp3
+tagline: Composer & Music Producer
+description: Brandon Kootnekoff is a composer and music producer crafting cinematic scores, electronic textures, and hybrid sound design for film, games, and independent artists.
+heroIntro: "Hi! I'm Brandon, a composer and music producer specializing in cinematic scores, electronic textures, and hybrid sound design."
+heroIntro2: "When I'm not composing, you can find me exploring new sample libraries, experimenting with production techniques, or searching for the perfect coffee. Welcome to my world of music, where your stories come to life."
+serviceHeading: "COMPOSER AT YOUR SERVICE"
+serviceText: "Whether you need a sweeping <strong>film score</strong>, a pulse-driven <strong>game soundtrack</strong>, or an engaging <strong>commercial theme</strong>, I'm committed to delivering music that elevates your project to its fullest potential."
 youtube:
   videoId: jfKfPfyJRdk
-  title: Composer reel — placeholder video (swap in your own YouTube link)
+  title: Brandon Kootnekoff — Composer Reel
 ---
 
 ## About
 
-Brandon Kootnekoff is an up-and-coming composer and music producer building a voice at the intersection of cinematic orchestration, electronic production, and modern sound design. From intimate piano sketches to full hybrid scores, his work is driven by mood, movement, and the stories behind each project.
+Brandon Kootnekoff is a composer and music producer building a voice at the intersection of cinematic orchestration, electronic production, and modern sound design. From intimate piano sketches to full hybrid scores, his work is driven by mood, movement, and the stories behind each project.
 
-## Sound & style
+## Sound & Style
 
 His catalog spans atmospheric underscore, pulse-driven electronic cues, and emotionally led melodic writing. Influences range from film scoring and ambient production to contemporary pop arrangement — always with an ear toward clarity, dynamics, and a polished final mix.
 
-## Current focus
+## Current Focus
 
 Brandon is actively developing original music for film and game projects, producing tracks for independent artists, and expanding a personal library of licensable cues. New releases, collaborations, and scoring opportunities are welcome.
-
-## Selected works
-
-*Original score — short film (in progress)*  
-*Hybrid electronic cue — game trailer concept*  
-*Production & arrangement — independent single (demo stage)*
-
-Replace the placeholder audio and video on the right with your latest track and showreel when ready.

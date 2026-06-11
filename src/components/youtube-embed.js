@@ -32,7 +32,7 @@ const styles = {
     paddingBottom: "56.25%",
     borderRadius: "16px",
     overflow: "hidden",
-    bg: "black",
+    bg: "background",
     boxShadow: "0 12px 40px rgba(14, 14, 14, 0.12)",
     iframe: {
       position: "absolute",

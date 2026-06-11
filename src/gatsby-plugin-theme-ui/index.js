@@ -15,24 +15,23 @@ const theme = {
   },
   variants: {
     container: {
-      maxWidth: "1440px",
+      maxWidth: "1200px",
       m: "0 auto",
-      px: ["20px", "60px", "80px", "160px", "160px"],
-      py: [4, 4, 7],
+      px: ["20px", "40px", "60px", "100px"],
+      py: [4, 4, 6],
     },
     button: {
       py: 2,
       px: 3,
       fontSize: 2,
       cursor: "pointer",
-      borderRadius: "12px",
-      border: "1.2px solid",
-      borderColor: "black",
+      border: "1px solid",
+      borderColor: "borderColor",
       color: "black",
-      background: "none",
+      bg: "primaryBg",
       letterSpacing: "1px",
-      "&: hover": {
-        color: "primaryColor",
+      "&:hover": {
+        borderColor: "black",
       },
     },
     markdown: {

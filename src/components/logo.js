@@ -4,19 +4,14 @@ import { Link } from "gatsby";
 import site from "../util/site.json";
 
 const siteTitle = site.meta.title;
-const image = site.meta.logoImage;
-const showLogo = site.meta.showLogo;
-const showTitle = site.meta.showTitle;
-const Logo = (sx) => (
+const siteSubtitle = site.meta.subtitle;
+
+const Logo = () => (
   <div sx={styles.siteLogo}>
-    {showLogo === true
-      ? image && (
-          <Link to="/">
-            <img src={image.slice(15)} alt={siteTitle} />
-          </Link>
-        )
-      : ""}
-    {showTitle === true ? <Link to="/">{siteTitle}</Link> : ""}
+    <Link to="/" sx={styles.logoLink}>
+      <span sx={styles.title}>{siteTitle}</span>
+      {siteSubtitle && <span sx={styles.subtitle}>{siteSubtitle}</span>}
+    </Link>
   </div>
 );
 
@@ -25,20 +20,29 @@ export default Logo;
 const styles = {
   siteLogo: {
     display: "flex",
-    justifyContent: ["center", "center", "left"],
     alignItems: "center",
-    fontSize: "28px",
-    letterSpacing: "1px",
-    textAlign: ["center", "center", "left"],
-    a: {
-      color: "black",
-      textDecoration: "none",
-      cursor: "pointer",
-    },
-    img: {
-      maxHeight: "42px",
-      mr: 2,
-      display: "block",
-    },
+  },
+  logoLink: {
+    display: "flex",
+    flexDirection: "column",
+    textDecoration: "none",
+    color: "black",
+    lineHeight: 1.2,
+  },
+  title: {
+    fontFamily: "heading",
+    fontWeight: "700",
+    fontSize: ["18px", "20px", "22px"],
+    letterSpacing: "0.05em",
+    textTransform: "uppercase",
+    color: "black",
+  },
+  subtitle: {
+    fontFamily: "body",
+    fontWeight: "400",
+    fontSize: ["12px", "13px", "14px"],
+    letterSpacing: "0.02em",
+    color: "black",
+    mt: "2px",
   },
 };

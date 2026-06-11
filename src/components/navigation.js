@@ -67,16 +67,22 @@ const navStyles = {
         pl: 5,
       },
       "> li a": {
-        fontSize: 3,
+        fontSize: [2, 2, 3],
         letterSpacing: "1.2px",
         lineHeight: ["60px", "80px"],
         color: "black",
-        fontWeight: "900",
+        fontWeight: "600",
+        textDecoration: "none",
+        paddingBottom: "4px",
+        borderBottom: "2px solid transparent",
+        transition: "border-color 0.2s",
         "&:hover": {
-          color: "primaryColor",
+          borderBottom: "2px solid",
+          borderColor: "black",
         },
         "&[aria-current='page']": {
-          color: "primaryColor",
+          borderBottom: "2px solid",
+          borderColor: "black",
         },
       },
     },
@@ -101,11 +107,11 @@ const navStyles = {
       },
       "&.is-active": {
         color: "black",
-        bg: "background",
+        bg: "primaryBg",
         "+ .site-menu": {
           display: ["block"],
           position: ["absolute", "absolute", "absolute", "relative"],
-          bg: "background",
+          bg: "primaryBg",
           minWidth: ["280px"],
           maxWidth: "100%",
           maxHeight: [

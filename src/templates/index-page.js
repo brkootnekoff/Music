@@ -1,12 +1,10 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
-import AudioPlayer from "../components/audio-player";
 import YoutubeEmbed from "../components/youtube-embed";
 import Site from "../util/site.json";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 export const pageQuery = graphql`
   query HomeQuery($id: String!) {
@@ -17,31 +15,11 @@ export const pageQuery = graphql`
         name
         tagline
         description
-        bannerImage {
-          childImageSharp {
-            gatsbyImageData(
-              layout: FULL_WIDTH
-              placeholder: BLURRED
-              formats: [AUTO, WEBP]
-            )
-          }
-        }
-        profileImage {
-          childImageSharp {
-            gatsbyImageData(
-              layout: FIXED
-              width: 220
-              height: 220
-              placeholder: BLURRED
-              formats: [AUTO, WEBP]
-            )
-          }
-        }
-        audio {
-          title
-          artist
-          src
-        }
+        profileImageUrl
+        heroIntro
+        heroIntro2
+        serviceHeading
+        serviceText
         youtube {
           videoId
           title
@@ -55,76 +33,68 @@ const HomePage = ({ data }) => {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
 
-  const bannerImage = getImage(frontmatter.bannerImage);
-  const profileImage = getImage(frontmatter.profileImage);
-
   return (
     <Layout>
       <Seo title={Site.meta.title} description={frontmatter.description} />
 
+      {/* Hero: photo left, intro text right */}
       <section sx={styles.hero}>
-        <div sx={styles.banner}>
-          {bannerImage && (
-            <GatsbyImage
-              image={bannerImage}
-              alt=""
-              sx={styles.bannerImage}
-            />
-          )}
-          <div sx={styles.bannerOverlay} />
-        </div>
-
-        <div sx={styles.profileBlock}>
-          {profileImage && (
-            <div sx={styles.profileRing}>
-              <GatsbyImage
-                image={profileImage}
-                alt={frontmatter.name ? `Photo of ${frontmatter.name}` : ""}
-                sx={styles.profileImage}
-              />
-            </div>
-          )}
-          {frontmatter.name && <h1 sx={styles.name}>{frontmatter.name}</h1>}
-          {frontmatter.tagline && (
-            <p sx={styles.tagline}>{frontmatter.tagline}</p>
-          )}
+        <div sx={styles.heroInner}>
+          <div sx={styles.photoCol}>
+            {frontmatter.profileImageUrl && (
+              <div sx={styles.photoRing}>
+                <img
+                  src={frontmatter.profileImageUrl}
+                  alt={frontmatter.name || "Profile"}
+                  sx={styles.photo}
+                />
+              </div>
+            )}
+          </div>
+          <div sx={styles.introCol}>
+            {frontmatter.heroIntro && (
+              <p sx={styles.introText}>{frontmatter.heroIntro}</p>
+            )}
+            {frontmatter.heroIntro2 && (
+              <p sx={styles.introText2}>{frontmatter.heroIntro2}</p>
+            )}
+            <Link to="/contact" sx={styles.ctaButton}>
+              Get in Touch
+            </Link>
+          </div>
         </div>
       </section>
 
-      <section sx={styles.contentSection}>
-        <div sx={styles.contentGrid}>
-          {html && (
-            <div
-              sx={styles.bio}
-              dangerouslySetInnerHTML={{ __html: html }}
+      {/* Service section */}
+      <section sx={styles.serviceSection}>
+        <h2 sx={styles.serviceHeading}>
+          {frontmatter.serviceHeading || "MEDIA COMPOSER AT YOUR SERVICE"}
+        </h2>
+        {frontmatter.serviceText && (
+          <p
+            sx={styles.serviceText}
+            dangerouslySetInnerHTML={{ __html: frontmatter.serviceText }}
+          />
+        )}
+        {frontmatter.youtube?.videoId && (
+          <div sx={styles.videoWrap}>
+            <YoutubeEmbed
+              videoId={frontmatter.youtube.videoId}
+              title={frontmatter.youtube.title}
             />
-          )}
-
-          {(frontmatter.audio?.src || frontmatter.youtube?.videoId) && (
-            <aside sx={styles.mediaAside}>
-              {frontmatter.audio?.src && (
-                <div sx={styles.mediaBlock}>
-                  <p sx={styles.mediaLabel}>Listen</p>
-                  <AudioPlayer
-                    title={frontmatter.audio.title}
-                    artist={frontmatter.audio.artist}
-                    src={frontmatter.audio.src}
-                  />
-                </div>
-              )}
-              {frontmatter.youtube?.videoId && (
-                <div sx={styles.mediaBlock}>
-                  <p sx={styles.mediaLabel}>Watch</p>
-                  <YoutubeEmbed
-                    videoId={frontmatter.youtube.videoId}
-                    title={frontmatter.youtube.title}
-                  />
-                </div>
-              )}
-            </aside>
-          )}
-        </div>
+          </div>
+        )}
       </section>
+
+      {/* Bio content */}
+      {html && (
+        <section sx={styles.bioSection}>
+          <div
+            sx={styles.bio}
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
+        </section>
+      )}
     </Layout>
   );
 };
@@ -133,124 +103,136 @@ export default HomePage;
 
 const styles = {
   hero: {
-    position: "relative",
-    mb: [6, 7, 8],
+    bg: "background",
+    py: [6, 7, 8],
+    px: ["20px", "40px", "60px", "100px"],
   },
-  banner: {
-    position: "relative",
-    width: "100%",
-    height: ["220px", "280px", "340px"],
-    overflow: "hidden",
-    borderRadius: ["0", "0", "20px"],
-  },
-  bannerImage: {
-    width: "100%",
-    height: "100%",
-  },
-  bannerOverlay: {
-    position: "absolute",
-    inset: 0,
-    background:
-      "linear-gradient(180deg, rgba(14, 14, 14, 0.05) 0%, rgba(14, 14, 14, 0.45) 100%)",
-    pointerEvents: "none",
-  },
-  profileBlock: {
-    position: "relative",
+  heroInner: {
+    maxWidth: "1100px",
+    mx: "auto",
     display: "flex",
-    flexDirection: "column",
+    flexDirection: ["column", "column", "row"],
     alignItems: "center",
-    textAlign: "center",
-    mt: ["-72px", "-84px", "-96px"],
-    px: [3, 4, 0],
+    gap: [6, 7, 8],
   },
-  profileRing: {
-    width: ["140px", "168px", "196px"],
-    height: ["140px", "168px", "196px"],
+  photoCol: {
+    flexShrink: 0,
+    display: "flex",
+    justifyContent: "center",
+  },
+  photoRing: {
+    width: ["220px", "260px", "300px"],
+    height: ["220px", "260px", "300px"],
     borderRadius: "50%",
     overflow: "hidden",
-    border: "4px solid",
-    borderColor: "background",
-    boxShadow: "0 8px 32px rgba(14, 14, 14, 0.18)",
-    bg: "background",
+    border: "none",
+    flexShrink: 0,
   },
-  profileImage: {
+  photo: {
     width: "100%",
     height: "100%",
+    objectFit: "cover",
+    objectPosition: "center top",
+    display: "block",
   },
-  name: {
-    mt: 4,
-    mb: 2,
-    fontSize: [5, 6, 7],
-    fontWeight: "600",
-    letterSpacing: "-0.02em",
+  introCol: {
+    flex: 1,
+    display: "flex",
+    flexDirection: "column",
+    gap: 4,
+    textAlign: ["center", "center", "left"],
+  },
+  introText: {
+    m: 0,
+    fontSize: [2, 3, 3],
+    color: "black",
+    lineHeight: 1.8,
+  },
+  introText2: {
+    m: 0,
+    fontSize: [2, 3, 3],
+    color: "black",
+    lineHeight: 1.8,
+  },
+  ctaButton: {
+    display: "inline-block",
+    alignSelf: ["center", "center", "flex-start"],
+    mt: 3,
+    py: "14px",
+    px: "40px",
+    fontSize: [1, 2, 2],
+    letterSpacing: "1px",
+    color: "black",
+    bg: "primaryBg",
+    border: "1px solid",
+    borderColor: "borderColor",
+    textDecoration: "none",
+    cursor: "pointer",
+    transition: "background 0.2s, border-color 0.2s",
+    "&:hover": {
+      bg: "#222222",
+      borderColor: "black",
+    },
+  },
+  serviceSection: {
+    bg: "background",
+    py: [6, 7, 8],
+    px: ["20px", "40px", "60px", "100px"],
+    textAlign: "center",
+    borderTop: "1px solid",
+    borderColor: "borderColor",
+  },
+  serviceHeading: {
+    m: 0,
+    mb: 5,
+    fontSize: ["28px", "36px", "48px"],
+    fontWeight: "700",
+    letterSpacing: "0.04em",
+    textTransform: "uppercase",
     color: "black",
   },
-  tagline: {
+  serviceText: {
     m: 0,
-    maxWidth: "540px",
+    mb: 7,
+    maxWidth: "700px",
+    mx: "auto",
     fontSize: [2, 3, 3],
-    color: "mutedColor",
-    fontStyle: "italic",
-    lineHeight: 1.5,
+    color: "black",
+    lineHeight: 1.8,
+    b: {
+      fontWeight: "700",
+      color: "black",
+    },
+    strong: {
+      fontWeight: "700",
+      color: "black",
+    },
   },
-  contentSection: {
-    variant: "variants.container",
+  videoWrap: {
+    maxWidth: "700px",
+    mx: "auto",
     width: "100%",
-    pb: [6, 7, 8],
   },
-  contentGrid: {
-    display: "grid",
-    gridTemplateColumns: ["1fr", "1fr", "minmax(0, 640px) minmax(280px, 360px)"],
-    gap: [5, 6, 7],
-    justifyContent: "center",
-    alignItems: "start",
+  bioSection: {
+    bg: "background",
+    py: [5, 6, 7],
+    px: ["20px", "40px", "60px", "100px"],
+    borderTop: "1px solid",
+    borderColor: "borderColor",
   },
   bio: {
     variant: "variants.markdown",
-    maxWidth: "640px",
-    mx: ["auto", "auto", 0],
-    textAlign: ["center", "center", "left"],
-    "p:first-of-type": {
-      fontSize: [3, 4, 4],
-      lineHeight: 1.7,
+    maxWidth: "760px",
+    mx: "auto",
+    py: 0,
+    "p, li": {
       color: "black",
-    },
-    p: {
       fontSize: [2, 3, 3],
-      lineHeight: 1.8,
-      color: "mutedColor",
-      py: 2,
     },
     h2: {
-      mt: 5,
-      mb: 2,
-      fontSize: [3, 4, 4],
-      color: "primaryColor",
-      letterSpacing: "0.04em",
+      color: "black",
       textTransform: "uppercase",
+      letterSpacing: "0.04em",
     },
-  },
-  mediaAside: {
-    position: ["static", "static", "sticky"],
-    top: 5,
-    width: "100%",
-    maxWidth: ["480px", "540px", "none"],
-    mx: ["auto", "auto", 0],
-    display: "flex",
-    flexDirection: "column",
-    gap: 5,
-  },
-  mediaBlock: {
-    width: "100%",
-  },
-  mediaLabel: {
-    m: 0,
-    mb: 3,
-    fontSize: 1,
-    letterSpacing: "0.14em",
-    textTransform: "uppercase",
-    color: "primaryColor",
-    fontWeight: "600",
-    textAlign: ["center", "center", "left"],
   },
 };

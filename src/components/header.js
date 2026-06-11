@@ -5,7 +5,7 @@ import Navigation from "./navigation";
 
 const Header = () => {
   return (
-    <header>
+    <header sx={headerStyles.header}>
       <div sx={headerStyles.container}>
         <Logo />
         <div sx={headerStyles.navIcons}>
@@ -24,14 +24,19 @@ const Header = () => {
 export default Header;
 
 const headerStyles = {
+  header: {
+    bg: "background",
+    borderBottom: "1px solid",
+    borderColor: "borderColor",
+  },
   container: {
     m: "0 auto",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    px: ["10px", "60px", "80px", "160px", "160px"],
-    py: "8px",
-    bg: "primaryBg",
+    px: ["20px", "40px", "60px", "100px"],
+    py: "16px",
+    bg: "background",
   },
   navMenuBigScreen: {
     display: ["none", "none", "none", "flex"],

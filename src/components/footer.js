@@ -7,9 +7,11 @@ import ReactMarkdown from "react-markdown";
 const footerStyles = {
   footerContainer: {
     variant: "variants.container",
-    bg: "primaryBg",
-    py: 6,
-    mt: 5,
+    bg: "background",
+    borderTop: "1px solid",
+    borderColor: "borderColor",
+    py: 5,
+    mt: 0,
     textAlign: "center",
   },
 };

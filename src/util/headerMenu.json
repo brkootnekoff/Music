@@ -5,8 +5,16 @@
       "url": "/"
     },
     {
-      "title": "Blog",
+      "title": "About Me",
+      "url": "/about"
+    },
+    {
+      "title": "Music",
       "url": "/blog"
+    },
+    {
+      "title": "Services",
+      "url": "/services"
     },
     {
       "title": "Contact",
