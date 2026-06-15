@@ -9,7 +9,6 @@ heroIntro: "Hi! I'm Brandon, a composer and music producer specializing in cinem
 heroIntro2: "When I'm not composing, you can find me exploring new sample libraries, experimenting with production techniques, or searching for the perfect coffee. Welcome to my world of music, where your stories come to life."
 serviceHeading: "COMPOSER AT YOUR SERVICE"
 serviceText: "Whether you need a sweeping <strong>film score</strong>, a pulse-driven <strong>game soundtrack</strong>, or an engaging <strong>commercial theme</strong>, I'm committed to delivering music that elevates your project to its fullest potential."
-title: Brandon Kootnekoff — Composer Reel
 <!-- ReelCrafter reel: horror reel -->
 <iframe
  width="100%"
