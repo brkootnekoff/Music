@@ -2,6 +2,19 @@ const path = require("path");
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const slugify = require("@sindresorhus/slugify");
 
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  createTypes(`
+    type MarkdownRemarkFrontmatter {
+      youtube: FrontmatterYoutube
+    }
+    type FrontmatterYoutube {
+      videoId: String
+      title: String
+    }
+  `);
+};
+
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
 
