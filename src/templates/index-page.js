@@ -65,7 +65,14 @@ const HomePage = ({ data }) => {
         </div>
       </section>
 
-      {/* Service section */}
+      {/*<!-- ReelCrafter reel: horror reel -->
+<iframe
+ width="100%"
+ height="400"
+ scrolling="no"
+ frameborder="no"
+ src="https://play.reelcrafter.com/embed/90f03228-72c7-43ec-93e1-b27bd291ce5c">
+</iframe> */}
       <section sx={styles.serviceSection}>
         <h2 sx={styles.serviceHeading}>
           {frontmatter.serviceHeading || "MEDIA COMPOSER AT YOUR SERVICE"}
