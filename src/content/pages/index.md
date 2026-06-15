@@ -20,14 +20,12 @@ serviceText: "Whether you need a sweeping <strong>film score</strong>, a pulse-d
  frameborder="no"
  src="https://play.reelcrafter.com/embed/90f03228-72c7-43ec-93e1-b27bd291ce5c">
 </iframe>
-## About
 
-Brandon Kootnekoff is a composer and music producer building a voice at the intersection of cinematic orchestration, electronic production, and modern sound design. From intimate piano sketches to full hybrid scores, his work is driven by mood, movement, and the stories behind each project.
 
-## Sound & Style
 
-His catalog spans atmospheric underscore, pulse-driven electronic cues, and emotionally led melodic writing. Influences range from film scoring and ambient production to contemporary pop arrangement — always with an ear toward clarity, dynamics, and a polished final mix.
 
-## Current Focus
 
-Brandon is actively developing original music for film and game projects, producing tracks for independent artists, and expanding a personal library of licensable cues. New releases, collaborations, and scoring opportunities are welcome.
+
+
+
+
