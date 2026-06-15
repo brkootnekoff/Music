@@ -3,17 +3,12 @@ import { jsx } from "theme-ui";
 import { Link } from "gatsby";
 import {
   RiFacebookFill,
-  RiTwitterFill,
   RiLinkedinFill,
   RiYoutubeFill,
   RiInstagramLine,
   RiRssFill,
   RiGithubFill,
-  RiTelegramFill,
   RiPinterestFill,
-  RiSnapchatFill,
-  RiSkypeFill,
-  RiDribbbleFill,
   RiMediumFill,
   RiBehanceFill,
 } from "react-icons/ri";
