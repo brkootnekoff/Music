@@ -66,8 +66,13 @@ const HomePage = ({ data }) => {
         </div>
       </section>
 
-      < sx={styles.serviceSection}>
       <section sx={styles.serviceSection}>
+        {frontmatter.serviceText && (
+          <div
+            sx={styles.serviceText}
+            dangerouslySetInnerHTML={{ __html: frontmatter.serviceText }}
+          />
+        )}
         {frontmatter.reelUrl && (
           <div sx={styles.reelWrap}>
             <iframe
@@ -83,8 +88,6 @@ const HomePage = ({ data }) => {
         <h2 sx={styles.serviceHeading}>
           {frontmatter.serviceHeading || "MEDIA COMPOSER AT YOUR SERVICE"}
         </h2>
-        <p sx={styles.serviceText}>{frontmatter.serviceText}</p>
-        )}
         {frontmatter.youtube?.videoId && (
           <div sx={styles.videoWrap}>
             <YoutubeEmbed
