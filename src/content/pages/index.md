@@ -8,5 +8,8 @@ description: "I craft tailored cinematic scores for film and media, specializing
 heroIntro: ""
 heroIntro2: ""
 serviceHeading: "Scoring for Media"
-serviceText: "Whether you need a horror score, an atmospheric thriller soundtrack, or custom music for specialized projects, I deliver unique themes tailored entirely to your narrative. <iframe width=\"100%\" height=\"400\" scrolling=\"no\" frameborder=\"no\" src=\"https://play.reelcrafter.com/embed/90f03228-72c7-43ec-93e1-b27bd291ce5c\"></iframe>"
+serviceText: "Whether you need a horror score, an atmospheric thriller soundtrack, or custom music for specialized projects, I deliver unique themes tailored entirely to your narrative."
+reelUrl: "https://play.reelcrafter.com/embed/90f03228-72c7-43ec-93e1-b27bd291ce5c"
 ---
+
+I craft tailored cinematic scores for film and media, specializing in orchestral tension, suspense, and dark ambient horror designed to deepen a film's underlying dread.

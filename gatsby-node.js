@@ -67,6 +67,20 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     });
   });
 
+  // About page
+  const aboutpage = result.data.allMarkdownRemark.edges.filter(
+    (product) => product.node.frontmatter.template == "about-page"
+  );
+
+  aboutpage.forEach((about) => {
+    const id = about.node.id;
+    createPage({
+      path: about.node.frontmatter.slug,
+      component: path.resolve(`src/templates/about-page.js`),
+      context: { id },
+    });
+  });
+
   // Contact page
   const contactpage = result.data.allMarkdownRemark.edges.filter(
     (product) => product.node.frontmatter.template == "contact-page"

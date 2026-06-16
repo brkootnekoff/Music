@@ -20,6 +20,7 @@ export const pageQuery = graphql`
         heroIntro2
         serviceHeading
         serviceText
+        reelUrl
         youtube {
           videoId
           title
@@ -70,10 +71,22 @@ const HomePage = ({ data }) => {
           {frontmatter.serviceHeading || "MEDIA COMPOSER AT YOUR SERVICE"}
         </h2>
         {frontmatter.serviceText && (
-          <p
+          <div
             sx={styles.serviceText}
             dangerouslySetInnerHTML={{ __html: frontmatter.serviceText }}
           />
+        )}
+        {frontmatter.reelUrl && (
+          <div sx={styles.reelWrap}>
+            <iframe
+              width="100%"
+              height="400"
+              scrolling="no"
+              frameBorder="no"
+              src={frontmatter.reelUrl}
+              title="Music reel"
+            />
+          </div>
         )}
         {frontmatter.youtube?.videoId && (
           <div sx={styles.videoWrap}>
@@ -85,8 +98,6 @@ const HomePage = ({ data }) => {
         )}
       </section>
 
-      {/* I craft tailored cinematic scores for film and media, specializing in orchestral tension, suspense, and dark ambient horror designed to deepen a film's underlying dread.
- */}
       {html && (
         <section sx={styles.bioSection}>
           <div
@@ -206,6 +217,20 @@ const styles = {
     strong: {
       fontWeight: "700",
       color: "black",
+    },
+  },
+  reelWrap: {
+    maxWidth: "700px",
+    mx: "auto",
+    width: "100%",
+    mt: 6,
+    mb: 6,
+    borderRadius: "16px",
+    overflow: "hidden",
+    iframe: {
+      display: "block",
+      width: "100%",
+      border: 0,
     },
   },
   videoWrap: {

@@ -1,5 +1,5 @@
 ---
-template: contact-page
+template: about-page
 slug: /about
 title: About Me
 description: Learn more about Brandon Kootnekoff
