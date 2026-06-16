@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import { graphql, Link } from "gatsby";
+import { graphql, Link, withPrefix } from "gatsby";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 import YoutubeEmbed from "../components/youtube-embed";
@@ -45,7 +45,7 @@ const HomePage = ({ data }) => {
             {frontmatter.profileImageUrl && (
               <div sx={styles.photoRing}>
                 <img
-                  src={frontmatter.profileImageUrl}
+                  src={frontmatter.profileImageUrl?.startsWith("http") ? frontmatter.profileImageUrl : withPrefix(frontmatter.profileImageUrl)}
                   alt={frontmatter.name || "Profile"}
                   sx={styles.photo}
                 />
