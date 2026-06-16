@@ -85,7 +85,8 @@ const HomePage = ({ data }) => {
         )}
       </section>
 
-      {/* Bio content */}
+      {/* I craft tailored cinematic scores for film and media, specializing in orchestral tension, suspense, and dark ambient horror designed to deepen a film's underlying dread.
+ */}
       {html && (
         <section sx={styles.bioSection}>
           <div
