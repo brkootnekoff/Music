@@ -21,6 +21,7 @@ export const pageQuery = graphql`
         serviceHeading
         serviceText
         reelUrl
+        serviceSubtext
         youtube {
           videoId
           title
@@ -88,6 +89,12 @@ const HomePage = ({ data }) => {
         <h2 sx={styles.serviceHeading}>
           {frontmatter.serviceHeading || "MEDIA COMPOSER AT YOUR SERVICE"}
         </h2>
+        {frontmatter.serviceSubtext && (
+          <div
+            sx={styles.serviceText}
+            dangerouslySetInnerHTML={{ __html: frontmatter.serviceSubtext }}
+          />
+        )}
         {frontmatter.youtube?.videoId && (
           <div sx={styles.videoWrap}>
             <YoutubeEmbed
