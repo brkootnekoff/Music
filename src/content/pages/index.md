@@ -1,7 +1,7 @@
 ---
 template: index-page
 slug: /
-profileImageUrl: "https://github.com/brkootnekoff.png"
+profileImageUrl: "/profile.jpg"
 name: Brandon Kootnekoff
 tagline: Film & Media Composer
 description: "I craft tailored cinematic scores for film and media, specializing in orchestral tension, suspense, and dark ambient horror designed to deepen a film's underlying dread."
